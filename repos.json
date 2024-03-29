@@ -3,7 +3,7 @@
     "kernelSource": {
       "name": "Kernel",
       "repo": "https://github.com/rankalpha/android_kernel_xiaomi_sdm660",
-      "defconfig": "lavender_ksu_defconfig",
+      "defconfig": "lavender_auto_ksu_defconfig",
       "branch": "udc",
       "device": "lavender"
     }, 
