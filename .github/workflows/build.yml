@@ -147,6 +147,12 @@ jobs:
         run: |
           echo "PATH Variable: $PATH"
           make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
+          echo "----------------- -----------------"
+          sudo updatedb
+          locate .config
+          echo "----------------- -----------------"
+          ls -ls $(pwd)/${{ env.OUT_DIR }}
+          echo "----------------- -----------------"
           #find . -name '.config'
           #echo "----------------- -----------------"
           #ls -ls
