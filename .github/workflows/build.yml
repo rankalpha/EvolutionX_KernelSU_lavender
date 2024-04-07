@@ -147,6 +147,7 @@ jobs:
         run: |
           #echo "PATH Variable: $PATH"
           #make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
+          mkdir -p $(pwd)/${{ env.OUT_DIR }}
           cp arch/arm64/configs/vendor/redmi_note7_config $(pwd)/${{ env.OUT_DIR }}/.config
           echo "----------------- KPROBE -----------------"
           cat arch/arm64/configs/vendor/redmi_note7_config | grep KPROBE
