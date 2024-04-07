@@ -146,7 +146,7 @@ jobs:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
           echo "PATH Variable: $PATH"
-          make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
+          #make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
           #echo "--- $(pwd)/${{ env.OUT_DIR }} ---"
           #echo "--- /home/runner/work/EvolutionX_KernelSU_lavender/EvolutionX_KernelSU_lavender/Kernel_lavender/out ---"
           #echo "--- ${{ env.kernelDir }}/${{ env.kernelName }} --"
