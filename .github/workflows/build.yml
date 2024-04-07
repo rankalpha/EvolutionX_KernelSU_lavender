@@ -145,24 +145,15 @@ jobs:
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
-          echo "PATH Variable: $PATH"
-          make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
-          echo "----------------- -----------------"
-          ls -ls $(pwd)/${{ env.OUT_DIR }}
-          echo "----------------- -----------------"
-          #find . -name '.config'
-          #echo "----------------- -----------------"
-          #ls -ls
-          #echo "----------------- -----------------"
-          #ls .config -ls
-          #echo "----------------- -----------------"
-          #cp arch/arm64/configs/vendor/redmi_note7_config .config
-          #echo "----------------- KPROBE -----------------"
-          #cat .config | grep KPROBE
-          #echo "----------------- FTRACE -----------------"
-          #cat .config | grep FTRACE
-          #echo "----------------- BPF -----------------"
-          #cat .config | grep BPF
+          #echo "PATH Variable: $PATH"
+          #make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
+          cp arch/arm64/configs/vendor/redmi_note7_config $(pwd)/${{ env.OUT_DIR }}/.config
+          echo "----------------- KPROBE -----------------"
+          cat arch/arm64/configs/vendor/redmi_note7_config | grep KPROBE
+          echo "----------------- FTRACE -----------------"
+          cat arch/arm64/configs/vendor/redmi_note7_config | grep FTRACE
+          echo "----------------- BPF -----------------"
+          cat arch/arm64/configs/vendor/redmi_note7_config | grep BPF
 
       - name: "🎶 Build kernel"
         working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
