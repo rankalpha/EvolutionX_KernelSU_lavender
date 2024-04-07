@@ -146,7 +146,7 @@ jobs:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
           echo "PATH Variable: $PATH"
-          #make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
+          make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
           #echo "--- $(pwd)/${{ env.OUT_DIR }} ---"
           #echo "--- /home/runner/work/EvolutionX_KernelSU_lavender/EvolutionX_KernelSU_lavender/Kernel_lavender/out ---"
           #echo "--- ${{ env.kernelDir }}/${{ env.kernelName }} --"
@@ -159,7 +159,7 @@ jobs:
           mkdir -p ../${{ env.OUT_DIR }}
           ls -la ../${{ env.OUT_DIR }}
           echo "----------------- 4 -----------------"          
-          cp arch/arm64/configs/vendor/redmi_note7_config ../${{ env.OUT_DIR }}/.config
+          cp arch/arm64/configs/vendor/redmi_note7_config /home/runner/work/EvolutionX_KernelSU_lavender/EvolutionX_KernelSU_lavender/Kernel_lavender/out/.config
           ls -la ../${{ env.OUT_DIR }}
           echo "----------------- KPROBE -----------------"
           cat arch/arm64/configs/vendor/redmi_note7_config | grep KPROBE
@@ -174,7 +174,7 @@ jobs:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
           echo "PATH Variable: $PATH"
-          make ${args}
+          #make ${args}
 
       - name: "💛 Upload Image"
         uses: actions/upload-artifact@v3
