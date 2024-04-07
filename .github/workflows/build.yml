@@ -138,15 +138,22 @@ jobs:
 
           curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
 
-          cat ./arch/${{ env.ARCH }}/configs/${{ env.DEFCONFIG_NAME }}
+          #cat ./arch/${{ env.ARCH }}/configs/${{ env.DEFCONFIG_NAME }}
 
       - name: "👍 Make defconfig"
         working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
-          echo "PATH Variable: $PATH"
-          make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
+          cp arch/arm64/configs/vendor/redmi_note7_config ./.config
+          echo "----------------- KPROBE -----------------"
+          cat .config | grep KPROBE
+          echo "----------------- FTRACE -----------------"
+          cat .config | grep FTRACE
+          echo "----------------- BPF -----------------"
+          cat .config | grep BPF
+          #echo "PATH Variable: $PATH"
+          #make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
 
       - name: "🎶 Build kernel"
         working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
