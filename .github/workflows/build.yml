@@ -151,10 +151,14 @@ jobs:
           echo "--- /home/runner/work/EvolutionX_KernelSU_lavender/EvolutionX_KernelSU_lavender/Kernel_lavender/out ---"
           echo "--- ${{ env.kernelDir }}/${{ env.kernelName }} --"
           
+          echo "----------------- 1 -----------------"
           ls -ls /home/runner/work/EvolutionX_KernelSU_lavender/EvolutionX_KernelSU_lavender/Kernel_lavender/out
-          mkdir -p $(pwd)/${{ env.OUT_DIR }}
-          ls -ls $(pwd)/${{ env.OUT_DIR }}
-          cp arch/arm64/configs/vendor/redmi_note7_config $(pwd)/${{ env.OUT_DIR }}/.config
+          echo "----------------- 2 -----------------"
+          ls -ls /home/runner/work/EvolutionX_KernelSU_lavender/EvolutionX_KernelSU_lavender/Kernel_lavender
+          echo "----------------- 3 -----------------"          
+          mkdir -p ../${{ env.OUT_DIR }}
+          ls -ls ../${{ env.OUT_DIR }}
+          cp arch/arm64/configs/vendor/redmi_note7_config ../${{ env.OUT_DIR }}/.config
           echo "----------------- KPROBE -----------------"
           cat arch/arm64/configs/vendor/redmi_note7_config | grep KPROBE
           echo "----------------- FTRACE -----------------"
