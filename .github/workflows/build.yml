@@ -145,13 +145,13 @@ jobs:
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
-          cp arch/arm64/configs/vendor/redmi_note7_config ./.config
+          cp arch/arm64/configs/vendor/redmi_note7_config ./out/.config
           echo "----------------- KPROBE -----------------"
-          cat .config | grep KPROBE
+          cat ./out/config | grep KPROBE
           echo "----------------- FTRACE -----------------"
-          cat .config | grep FTRACE
+          cat ./out/config | grep FTRACE
           echo "----------------- BPF -----------------"
-          cat .config | grep BPF
+          cat ./out/config | grep BPF
           #echo "PATH Variable: $PATH"
           #make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
 
