@@ -145,6 +145,12 @@ jobs:
         env:
           args: ${{ steps.generate-args.outputs.args }}
         run: |
+          echo "PATH Variable: $PATH"
+          make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
+          ls -ls
+          echo "----------------- -----------------"
+          ls ./out/.config -ls
+          echo "----------------- -----------------"
           cp arch/arm64/configs/vendor/redmi_note7_config ./out/.config
           echo "----------------- KPROBE -----------------"
           cat ./out/config | grep KPROBE
@@ -152,8 +158,6 @@ jobs:
           cat ./out/config | grep FTRACE
           echo "----------------- BPF -----------------"
           cat ./out/config | grep BPF
-          #echo "PATH Variable: $PATH"
-          #make ${{ env.args }} ${{ env.DEFCONFIG_NAME }}
 
       - name: "🎶 Build kernel"
         working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
