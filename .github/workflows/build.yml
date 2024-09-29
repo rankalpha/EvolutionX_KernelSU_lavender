@@ -136,10 +136,23 @@ jobs:
             rm -rf "./drivers/kernelsu"
           fi
 
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/v0.9.0/kernel/setup.sh" | bash -
+          #curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/v0.9.0/kernel/setup.sh" | bash -
 
           #cat ./arch/${{ env.ARCH }}/configs/${{ env.DEFCONFIG_NAME }}
 
+          # 下载特定版本的KernelSU
+          curl -LSs "https://github.com/tiann/KernelSU/archive/refs/tags/v0.9.0.tar.gz" -o KernelSU-v0.9.0.tar.gz
+
+          # 解压下载的压缩包
+          tar -xzf KernelSU-v0.9.0.tar.gz
+
+          # 移动到指定目录
+          mv "KernelSU-0.9.0" "./KernelSU"
+
+          # 进入解压缩后的目录并运行setup.sh
+          cd "./KernelSU/kernel"
+          ./setup.sh
+    
       - name: "👍 Make defconfig"
         working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
         env:
