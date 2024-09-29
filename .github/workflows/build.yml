@@ -149,9 +149,9 @@ jobs:
           # 移动到指定目录
           mv "KernelSU-0.9.0" "./KernelSU"
 
-          # 进入解压缩后的目录并运行setup.sh
-          cd "./KernelSU/kernel"
-          ./setup.sh
+          # 赋予权限并运行setup.sh
+          chmod +x "./KernelSU/kernel/setup.sh"
+          ./"KernelSU/kernel/setup.sh"          
     
       - name: "👍 Make defconfig"
         working-directory: ./${{ env.kernelDir }}/${{ env.kernelName }}
