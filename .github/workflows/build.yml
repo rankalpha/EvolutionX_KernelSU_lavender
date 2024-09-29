@@ -136,7 +136,7 @@ jobs:
             rm -rf "./drivers/kernelsu"
           fi
 
-          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/v0.9.0/kernel/setup.sh" | bash -
 
           #cat ./arch/${{ env.ARCH }}/configs/${{ env.DEFCONFIG_NAME }}
 
