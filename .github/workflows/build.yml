@@ -14,14 +14,19 @@ jobs:
     outputs:
       repos: ${{ steps.generate-matrix.outputs.repos }}
     steps:
-      - name: "😄 Checkout"
+      # 明确下载指定名称的构件（假设由其他 workflow 上传）
+      - name: "😄 Download Artifact"
         uses: actions/download-artifact@v4
+        with:
+          name: repos-config  # 需与上传步骤的 name 一致
+          path: .            # 下载到当前目录
 
+      # 修正文件路径（自动创建子目录时需调整）
       - name: "😆 Generate Matrix"
         id: generate-matrix
         run: |
           echo "repos<<EOF" >> $GITHUB_OUTPUT
-          cat  ${{ env.CONFIGURATION }} >> $GITHUB_OUTPUT
+          cat repos-config/repos.json >> $GITHUB_OUTPUT  # 添加子目录前缀
           echo "EOF" >> $GITHUB_OUTPUT
 
   Build-Kernel:
@@ -198,7 +203,7 @@ jobs:
           retention-days: 7
 
       - name: "💙 Upload Image.gz"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Image.gz(${{ env.kernelDevice }}-${{ env.kernelName }}-${{ env.kernelBranch }})
           path: ./${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/Image.gz
@@ -206,7 +211,7 @@ jobs:
           retention-days: 7
 
       - name: "💜 Upload dtb"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dtb(${{ env.kernelDevice }}-${{ env.kernelName }}-${{ env.kernelBranch }})
           path: ./${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtb
@@ -214,7 +219,7 @@ jobs:
           retention-days: 7
 
       - name: "❤️ Upload dtbo.img"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dtbo.img(${{ env.kernelDevice }}-${{ env.kernelName }}-${{ env.kernelBranch }})
           path: ./${{ env.kernelDir }}/${{ env.OUT_DIR }}/arch/${{ env.ARCH }}/boot/dtbo.img
