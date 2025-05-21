@@ -9,8 +9,8 @@
     }, 
     "kernelSource": {
       "name": "Kernel",
-      "repo": "https://github.com/rankalpha/KernelSu_Action_Xiaomi",
-      "defconfig": "lavender_defconfig",
+      "repo": "https://github.com/rankalpha/Xiaomi_Kernel_OpenSource",
+      "defconfig": "lavender-perf_defconfig",
       "branch": "lavender-q-oss",
       "device": "lavender"
     },         
