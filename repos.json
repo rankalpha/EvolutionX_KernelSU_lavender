@@ -16,9 +16,9 @@
     },         
     "kernelSource": {
       "name": "Kernel",
-      "repo": "https://github.com/crdroidandroid/android_kernel_xiaomi_lavender",
-      "defconfig": "lavender-perf_defconfig",
-      "branch": "13.0",
+      "repo": "https://github.com/ArrowOS-Devices/android_kernel_xiaomi_sdm660-old",
+      "defconfig": "lavender_defconfig",
+      "branch": "12.0",
       "device": "lavender"
     },        
     "withKernelSU": false,
