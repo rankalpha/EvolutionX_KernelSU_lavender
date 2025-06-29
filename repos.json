@@ -17,8 +17,8 @@
     "kernelSource": {
       "name": "Kernel",
       "repo": "https://github.com/crdroidandroid/android_kernel_xiaomi_lavender",
-      "defconfig": "lavender-perf_defconfig",
-      "branch": "13.0",
+      "defconfig": "lavender_defconfig",
+      "branch": "14.0",
       "device": "lavender"
     },        
     "withKernelSU": false,
