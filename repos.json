@@ -7,13 +7,20 @@
       "branch": "android-4.4-stable",
       "device": "lavender"
     }, 
-    "kernelSource": {
+    "kernelSource1": {
       "name": "Kernel",
       "repo": "https://github.com/rankalpha/Xiaomi_Kernel_OpenSource",
       "defconfig": "lavender-perf_defconfig",
       "branch": "lavender-q-oss",
       "device": "lavender"
     },         
+    "kernelSource": {
+      "name": "Kernel",
+      "repo": "https://github.com/crdroidandroid/android_kernel_xiaomi_lavender",
+      "defconfig": "lavender-perf_defconfig",
+      "branch": "13.0",
+      "device": "lavender"
+    },        
     "withKernelSU": false,
     "toolchains": [
       {
