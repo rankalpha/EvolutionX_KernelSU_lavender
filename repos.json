@@ -2,9 +2,9 @@
     {
     "kernelSource": {
       "name": "Kernel",
-      "repo": "https://github.com/OdSazib/kernel_xiaomi_sdm660",
+      "repo": "https://github.com/bananadroid-devices/kernel_xiaomi_lavender",
       "defconfig": "lavender_defconfig",
-      "branch": "4.19-ossCam",
+      "branch": "13.0",
       "device": "lavender"
     },          
     "kernelSource_org": {
