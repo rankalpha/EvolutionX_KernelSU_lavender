@@ -35,7 +35,6 @@
       "branch": "main",
       "device": "lavender"
     },          
-    {
     "kernelSource4": {
       "name": "Kernel",
       "repo": "https://github.com/ImSpiDy/kernel_xiaomi_lavender",
