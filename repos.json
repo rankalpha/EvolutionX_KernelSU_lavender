@@ -1,5 +1,12 @@
 [  
     {
+    "kernelSource": {
+      "name": "Kernel",
+      "repo": "https://github.com/ImSpiDy/kernel_xiaomi_lavender",
+      "defconfig": "lavender_defconfig",
+      "branch": "R1",
+      "device": "lavender"
+    },          
     "kernelSource_org": {
       "name": "Kernel",
       "repo": "https://github.com/user-why-red/android_kernel_xiaomi_sdm660_44",
@@ -21,11 +28,11 @@
       "branch": "arrow-12.0",
       "device": "lavender"
     },      
-    "kernelSource": {
+    "kernelSource3": {
       "name": "Kernel",
       "repo": "https://github.com/pix106/android_kernel_xiaomi_southwest-4.19",
       "defconfig": "lavender_defconfig",
-      "branch": "caf_12_13_merges_upstream",
+      "branch": "main",
       "device": "lavender"
     },          
     "withKernelSU": false,
