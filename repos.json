@@ -2,9 +2,9 @@
     {
     "kernelSource": {
       "name": "Kernel",
-      "repo": "https://github.com/wHo-EM-i/android_kernel_lavender-4.19",
+      "repo": "https://github.com/wHo-EM-i/kernel_xiaomi_lavender_4.19",
       "defconfig": "lavender_defconfig",
-      "branch": "12",
+      "branch": "4.19-stable",
       "device": "lavender"
     },          
     "kernelSource_org": {
