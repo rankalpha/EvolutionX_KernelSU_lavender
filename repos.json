@@ -2,9 +2,9 @@
     {
     "kernelSource": {
       "name": "Kernel",
-      "repo": "https://github.com/ImSpiDy/kernel_xiaomi_lavender",
+      "repo": "https://github.com/wHo-EM-i/android_kernel_lavender-4.19",
       "defconfig": "lavender_defconfig",
-      "branch": "R1",
+      "branch": "12",
       "device": "lavender"
     },          
     "kernelSource_org": {
@@ -35,6 +35,14 @@
       "branch": "main",
       "device": "lavender"
     },          
+    {
+    "kernelSource4": {
+      "name": "Kernel",
+      "repo": "https://github.com/ImSpiDy/kernel_xiaomi_lavender",
+      "defconfig": "lavender_defconfig",
+      "branch": "R1",
+      "device": "lavender"
+    },              
     "withKernelSU": false,
     "toolchains": [
       {
