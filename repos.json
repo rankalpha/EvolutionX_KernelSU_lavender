@@ -25,7 +25,7 @@
       "name": "Kernel",
       "repo": "https://github.com/pix106/android_kernel_xiaomi_southwest-4.19",
       "defconfig": "lavender_defconfig",
-      "branch": "main",
+      "branch": "caf_12_13_merges_upstream",
       "device": "lavender"
     },          
     "withKernelSU": false,
