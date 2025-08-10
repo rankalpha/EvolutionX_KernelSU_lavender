@@ -64,7 +64,8 @@
       "CROSS_COMPILE_COMPAT": "arm-linux-gnueabi-",
       "CLANG_TRIPLE": "aarch64-linux-gnu-",
       "AR": "",
-      "CC": "clang"
+      "CC": "clang",
+      "EXTRA_CMDS": "KCFLAGS=\"-Wno-error=strict-prototypes\""
     }
   }
 ]
