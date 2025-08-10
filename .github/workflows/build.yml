@@ -77,9 +77,23 @@ jobs:
             repo=$(echo $toolchains | jq -r ".[$i].repo")
             branch=$(echo $toolchains | jq -r ".[$i].branch")
             if [ "$branch" == "" ]; then
-              wget -O clang.zip $repo
+              FILE_NAME=$(basename "$repo")
+              wget -O "$FILENAME" "$repo"
               mkdir "$(pwd)/$name/"
-              unzip clang.zip -d "$(pwd)/$name/"
+              case "${FILE_NAME}" in
+                *.tar.xz|*.tar.gz|*.tgz)
+                  echo "Extracting .tar.xz/.tar.gz file"
+                  tar -xf "$FILE_NAME" -C "$(pwd)/$name/" --strip-components=1
+                  ;;
+                *.zip)
+                  echo "Extracting .zip file"
+                  unzip "$FILE_NAME" -d "$(pwd)/$name/"
+                  ;;
+                *)
+                  echo "Unsupported file format: $FILE_NAME"
+                  exit 1
+                  ;;
+              esac
               ls -ls
             else
               git clone --recursive --branch $branch $repo $name --depth=1
