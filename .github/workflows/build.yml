@@ -75,7 +75,14 @@ jobs:
             name=$(echo $toolchains | jq -r ".[$i].name")
             repo=$(echo $toolchains | jq -r ".[$i].repo")
             branch=$(echo $toolchains | jq -r ".[$i].branch")
-            git clone --recursive --branch $branch $repo $name --depth=1
+            if [ "$branch" == "" ]; then
+              wget -O clang.zip $repo
+              mkdir "(pwd)/$name/"
+              unzip clang.zip -d "(pwd)/$name/"
+              ls -ls
+            else
+              git clone --recursive --branch $branch $repo $name --depth=1
+            fi
             echo "$(pwd)/$name/" >> $GITHUB_PATH
             echo "$(pwd)/$name/bin" >> $GITHUB_PATH
           done
