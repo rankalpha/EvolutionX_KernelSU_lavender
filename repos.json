@@ -50,8 +50,10 @@
         "name": "gas"
       },
       {
-        "repo": "https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/",
-        "branch": "12",
+        "repo1": "https://gitlab.com/ThankYouMario/android_prebuilts_clang-standalone/",
+        "branch1": "12",
+        "repo": "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/LLVM-19.1.7-Linux-X64.tar.xz",
+        "branch": "",
         "name": "clang"
       }
     ],
