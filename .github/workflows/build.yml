@@ -78,8 +78,8 @@ jobs:
             branch=$(echo $toolchains | jq -r ".[$i].branch")
             if [ "$branch" == "" ]; then
               wget -O clang.zip $repo
-              mkdir "(pwd)/$name/"
-              unzip clang.zip -d "(pwd)/$name/"
+              mkdir "$(pwd)/$name/"
+              unzip clang.zip -d "$(pwd)/$name/"
               ls -ls
             else
               git clone --recursive --branch $branch $repo $name --depth=1
