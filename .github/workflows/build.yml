@@ -72,6 +72,7 @@ jobs:
           toolchains_num="$(echo $toolchains | jq 'length')"
           echo $toolchains_num
           for ((i=0;i<toolchains_num;i++)); do
+            df -h
             name=$(echo $toolchains | jq -r ".[$i].name")
             repo=$(echo $toolchains | jq -r ".[$i].repo")
             branch=$(echo $toolchains | jq -r ".[$i].branch")
