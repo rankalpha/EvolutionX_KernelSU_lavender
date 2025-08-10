@@ -103,6 +103,7 @@ jobs:
           CROSS_COMPILE_COMPAT=$(echo $params | jq -r ".CROSS_COMPILE_COMPAT")
           CROSS_COMPILE_ARM32=$(echo $params | jq -r ".CROSS_COMPILE_ARM32")
           CLANG_TRIPLE=$(echo $params | jq -r ".CLANG_TRIPLE")
+          EXTRA_CMDS=$(echo $params | jq -r ".EXTRA_CMDS")
           AR=$(echo $params | jq -r ".AR")
           CC=$(echo $params | jq -r ".CC")
 
@@ -130,6 +131,9 @@ jobs:
           fi
           if [ -n "$CC" ]; then
             args="$args CC=$CC"
+          fi
+          if [ -n "$EXTRA_CMDS" ]; then
+            args="$args $EXTRA_CMDS"
           fi
           echo "args=$args" >> $GITHUB_OUTPUT
 
