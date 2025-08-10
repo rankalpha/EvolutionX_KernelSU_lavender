@@ -72,14 +72,17 @@ jobs:
           toolchains_num="$(echo $toolchains | jq 'length')"
           echo $toolchains_num
           for ((i=0;i<toolchains_num;i++)); do
-            df -h
             name=$(echo $toolchains | jq -r ".[$i].name")
             repo=$(echo $toolchains | jq -r ".[$i].repo")
             branch=$(echo $toolchains | jq -r ".[$i].branch")
             if [ "$branch" == "" ]; then
               FILE_NAME=$(basename "$repo")
+              echo "$FILENAME"
               wget -O "$FILENAME" "$repo"
+              echo "wget success!"
+              echo "$(pwd)/$name/"
               mkdir "$(pwd)/$name/"
+              echo "mkdir success!"
               case "${FILE_NAME}" in
                 *.tar.xz|*.tar.gz|*.tgz)
                   echo "Extracting .tar.xz/.tar.gz file"
