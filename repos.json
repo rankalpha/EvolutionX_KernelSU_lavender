@@ -59,15 +59,9 @@
     ],
     "params": {
       "ARCH": "arm64",
-        
-      "CROSS_COMPILE": "aarch64-linux-android-",
-      "CROSS_COMPILE_ARM32": "arm-linux-androideabi-",
-      "CROSS_COMPILE_COMPAT": "arm-linux-androideabi-",
-        
-      "1CROSS_COMPILE": "aarch64-linux-gnu-",
-      "1CROSS_COMPILE_ARM32": "arm-linux-gnueabi-",
-      "1CROSS_COMPILE_COMPAT": "arm-linux-gnueabi-",
-        
+      "CROSS_COMPILE": "aarch64-linux-gnu-",
+      "CROSS_COMPILE_ARM32": "arm-linux-gnueabi-",
+      "CROSS_COMPILE_COMPAT": "arm-linux-gnueabi-",        
       "CLANG_TRIPLE": "aarch64-linux-gnu-",
       "AR": "",
       "CC": "clang",
