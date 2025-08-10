@@ -73,8 +73,11 @@ jobs:
           echo $toolchains_num
           for ((i=0;i<toolchains_num;i++)); do
             name=$(echo $toolchains | jq -r ".[$i].name")
+            echo "name: $name"
             repo=$(echo $toolchains | jq -r ".[$i].repo")
+            echo "repo: $repo"
             branch=$(echo $toolchains | jq -r ".[$i].branch")
+            echo "branch: $branch"
             if [ "$branch" == "" ]; then
               FILE_NAME=$(basename "$repo")
               echo "$FILENAME"
@@ -99,7 +102,9 @@ jobs:
               esac
               ls -ls
             else
+              echo "start clone ...."
               git clone --recursive --branch $branch $repo $name --depth=1
+              echo "end clone ..."
             fi
             echo "$(pwd)/$name/" >> $GITHUB_PATH
             echo "$(pwd)/$name/bin" >> $GITHUB_PATH
